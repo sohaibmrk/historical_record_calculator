@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historical Record Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="logcard">
+
+    <!-- Decorative punch holes, like the original card -->
+    <div class="punch-holes" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- Header band -->
+    <header class="card-head">
+      <div class="head-spacer" aria-hidden="true"></div>
+
+      <div class="head-title">
+        <h1>HISTORICAL RECORD</h1>
+        <p class="notice">CALCULATOR · TIME &amp; LANDINGS COMPONENTS</p>
+      </div>
+
+      <!-- Conversor decimal <-> HH:MM -->
+      <div class="converter">
+        <span class="conv-title">HH:MM&nbsp;&#8644;&nbsp;DECIMAL</span>
+        <div class="conv-fields">
+          <input type="text" id="convHM" inputmode="numeric" placeholder="0:00" aria-label="Horas en HH:MM">
+          <span class="conv-arrow" aria-hidden="true">&#8644;</span>
+          <input type="text" id="convDec" inputmode="decimal" placeholder="0.00" aria-label="Horas en decimal">
+        </div>
+      </div>
+    </header>
+
+    <main class="card-body">
+
+      <!-- INPUT: INSTALLATION + REMOVAL -->
+      <div class="input-layout">
+
+        <section class="panel">
+          <div class="panel-tab">INSTALLATION</div>
+          <table class="calc-table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">A/C Total<br><small>Time Install</small></th>
+                <th scope="col">Assy Total<br><small>Time Component</small></th>
+                <th scope="col">Time Since<br><small>Overhaul</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">HOURS</th>
+                <td><input type="text" id="t1" inputmode="numeric" placeholder="0:00"></td>
+                <td><input type="text" id="t2" inputmode="numeric" placeholder="0:00"></td>
+                <td><input type="text" id="t3" inputmode="numeric" placeholder="0:00"></td>
+              </tr>
+              <tr>
+                <th scope="row">LANDING</th>
+                <td><input type="number" id="n1" placeholder="0"></td>
+                <td><input type="number" id="n2" placeholder="0"></td>
+                <td><input type="number" id="n3" placeholder="0"></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="panel panel--removal">
+          <div class="panel-tab panel-tab--removal">REMOVAL</div>
+          <table class="calc-table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">A/C Total<br><small>Time Removal</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">HOURS</th>
+                <td><input type="text" id="t4" inputmode="numeric" placeholder="0:00"></td>
+              </tr>
+              <tr>
+                <th scope="row">LANDING</th>
+                <td><input type="number" id="n4" placeholder="0"></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+
+      <button id="calcular" type="button">
+        <span class="btn-dot" aria-hidden="true"></span>
+        CALCULATE
+      </button>
+
+      <p id="error" class="error-msg" role="alert" hidden>
+        <span class="error-icon" aria-hidden="true">!</span>
+        <span id="error-text"></span>
+      </p>
+
+      <!-- RESULT -->
+      <div id="resultado" hidden>
+        <section class="panel panel--result">
+          <div class="panel-tab panel-tab--result">REMOVAL</div>
+          <table class="calc-table result-table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">A/C Total<br><small>Removal</small></th>
+                <th scope="col">Assy Total<br><small>Time Component</small></th>
+                <th scope="col">Time Since<br><small>Overhaul</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">HOURS</th>
+                <td id="rt1"></td>
+                <td id="rt2"></td>
+                <td id="rt3"></td>
+              </tr>
+              <tr>
+                <th scope="row">LANDING</th>
+                <td id="rn1r"></td>
+                <td id="rn2r"></td>
+                <td id="rn3r"></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
